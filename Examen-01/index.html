@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Delivery Game - BabylonJS</title>
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <link rel="stylesheet" href="./public/css/styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="renderCanvas"></canvas>
+        
+        <!-- Pantalla de Inicio -->
+        <div id="start-screen" class="screen-overlay">
+            <div class="screen-content">
+                <h1 class="game-title">SPACE DELIVERY</h1>
+                <div class="game-description">
+                    <p>¡Entrega la mayor cantidad de cañones en 10 segundos!</p>
+                    <div class="instructions-box">
+                        <h3>📋 Instrucciones:</h3>
+                        <ul>
+                            <li>🎯 Recoge cañones de la estación espacial (zona verde)</li>
+                            <li>📦 Entrégalos en la nave (zona naranja)</li>
+                            <li>⏱️ Tienes 10 segundos - ¡Entrega todos los que puedas!</li>
+                        </ul>
+                        <h3>🎮 Controles:</h3>
+                        <ul>
+                            <li><strong>WASD</strong> o <strong>Flechas</strong>: Mover</li>
+                            <li><strong>E</strong>: Recoger/Entregar</li>
+                            <li><strong>Mouse</strong>: Rotar cámara</li>
+                        </ul>
+                    </div>
+                </div>
+                <button id="play-button" class="game-button">▶️ JUGAR</button>
+            </div>
+        </div>
+        
+        <!-- Pantalla de Resumen Final -->
+        <div id="summary-screen" class="screen-overlay" style="display: none;">
+            <div class="screen-content">
+                <h1 class="victory-title">🎉 ¡MISIÓN COMPLETADA! 🎉</h1>
+                <div class="summary-stats">
+                    <div class="stat-item">
+                        <span class="stat-icon">📦</span>
+                        <span class="stat-label">Cañones Entregados:</span>
+                        <span id="final-packages-display" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">⏱️</span>
+                        <span class="stat-label">Tiempo Usado:</span>
+                        <span id="final-time-display" class="stat-value">10s</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">⚡</span>
+                        <span class="stat-label">Tiempo por Entrega:</span>
+                        <span id="average-time-display" class="stat-value">--</span>
+                    </div>
+                </div>
+                <div class="summary-message">
+                    <p id="performance-message">¡Excelente trabajo!</p>
+                </div>
+                <button id="replay-button" class="game-button">🔄 JUGAR DE NUEVO</button>
+            </div>
+        </div>
+        
+        <div id="ui-overlay">
+            <div id="game-info">
+                <h1>Space Delivery</h1>
+                <div id="game-stats">
+                    <div id="timer">
+                        <strong>⏱️ Tiempo Restante:</strong> <span id="timer-value">10</span>s
+                    </div>
+                    <div id="package-counter">
+                        <strong>📦 Cañones:</strong> <span id="packages-delivered">0</span>
+                    </div>
+                </div>
+                <div id="status">Estado: Busca el cañón en la estación espacial</div>
+                <div id="instructions">
+                    <h3>Controles:</h3>
+                    <ul>
+                        <li><strong>WASD</strong> o <strong>Flechas</strong>: Mover</li>
+                        <li><strong>E</strong>: Recoger/Entregar paquete</li>
+                        <li><strong>Mouse</strong>: Rotar cámara</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts del juego -->
+    <script type="module" src="./src/utils/config.js"></script>
+    <script type="module" src="./src/systems/ZoneSystem.js"></script>
+    <script type="module" src="./src/systems/PackageSystem.js"></script>
+    <script type="module" src="./src/controllers/PlayerController.js"></script>
+    <script type="module" src="./src/managers/GameManager.js"></script>
+    <script type="module" src="./src/main.js"></script>
+</body>
+</html>

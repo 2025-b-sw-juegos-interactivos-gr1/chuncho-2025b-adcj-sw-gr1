@@ -1,0 +1,11 @@
+Model Information:
+* title:	Shedder's cannon
+* source:	https://sketchfab.com/3d-models/shedders-cannon-3f7e63870d6e47c483ff129bd56d2186
+* author:	photon (that one larry) (https://sketchfab.com/Professor_E12)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Shedder's cannon" (https://sketchfab.com/3d-models/shedders-cannon-3f7e63870d6e47c483ff129bd56d2186) by photon (that one larry) (https://sketchfab.com/Professor_E12) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

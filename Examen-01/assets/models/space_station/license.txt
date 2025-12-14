@@ -1,0 +1,8 @@
+Model Information:
+* title:	space station
+* source:	https://sketchfab.com/3d-models/space-station-4ec99734b83b45548ae40c42cd5d102a
+* author:	boxgizmo (https://sketchfab.com/boxgizmo)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

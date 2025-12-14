@@ -1,0 +1,339 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    background: #000;
+}
+
+#game-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+#renderCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    outline: none;
+    touch-action: none;
+}
+
+#ui-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#game-info {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #00ffff;
+    max-width: 350px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+#game-info h1 {
+    margin: 0 0 15px 0;
+    font-size: 24px;
+    color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+#game-stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+#timer, #package-counter {
+    flex: 1;
+    padding: 10px;
+    background: rgba(0, 150, 150, 0.4);
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    border: 2px solid #00ffff;
+}
+
+#timer-value, #packages-delivered {
+    color: #00ff00;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#total-packages {
+    color: #ffaa00;
+    font-weight: bold;
+}
+
+#status {
+    padding: 10px;
+    background: rgba(0, 100, 100, 0.3);
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    border-left: 3px solid #00ffff;
+}
+
+#instructions {
+    font-size: 12px;
+}
+
+#instructions h3 {
+    margin-bottom: 10px;
+    color: #00ffff;
+}
+
+#instructions ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+#instructions li {
+    margin-bottom: 5px;
+    padding: 3px 0;
+}
+
+#instructions strong {
+    color: #00ff00;
+}
+
+/* Animación de pulso para el estado */
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+    }
+}
+
+#game-info {
+    animation: pulse 2s infinite;
+}
+
+/* Estilos para el estado completado */
+#status.completed {
+    background: rgba(0, 255, 0, 0.3);
+    border-left: 3px solid #00ff00;
+    font-size: 16px;
+    font-weight: bold;
+    animation: victory-pulse 1s infinite;
+}
+
+@keyframes victory-pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Pantallas de overlay (inicio y resumen) */
+.screen-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    pointer-events: all;
+}
+
+.screen-content {
+    background: linear-gradient(135deg, rgba(0, 20, 40, 0.95), rgba(0, 40, 60, 0.95));
+    padding: 40px;
+    border-radius: 20px;
+    border: 3px solid #00ffff;
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.5);
+    text-align: center;
+    max-width: 600px;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.game-title {
+    font-size: 48px;
+    color: #00ffff;
+    text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+    margin-bottom: 20px;
+    animation: glow 2s infinite;
+}
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+    }
+    50% {
+        text-shadow: 0 0 30px #00ffff, 0 0 60px #00ffff, 0 0 80px #00ffff;
+    }
+}
+
+.victory-title {
+    font-size: 42px;
+    color: #00ff00;
+    text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+    margin-bottom: 30px;
+    animation: victory-glow 1.5s infinite;
+}
+
+@keyframes victory-glow {
+    0%, 100% {
+        text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+    }
+    50% {
+        text-shadow: 0 0 30px #00ff00, 0 0 60px #00ff00, 0 0 80px #00ff00;
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.game-description {
+    color: #fff;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.game-description p {
+    font-size: 22px;
+    color: #00ffff;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.instructions-box {
+    background: rgba(0, 50, 80, 0.5);
+    border: 2px solid #00ffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.instructions-box h3 {
+    color: #00ffff;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.instructions-box ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.instructions-box li {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.game-button {
+    background: linear-gradient(135deg, #00ffff, #0088ff);
+    color: #000;
+    border: none;
+    padding: 15px 50px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.5);
+    pointer-events: all;
+}
+
+.game-button:hover {
+    background: linear-gradient(135deg, #00ff00, #00ffff);
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(0, 255, 255, 0.8);
+}
+
+.game-button:active {
+    transform: scale(0.95);
+}
+
+/* Estilos para el resumen */
+.summary-stats {
+    margin: 30px 0;
+}
+
+.stat-item {
+    background: rgba(0, 100, 150, 0.3);
+    border: 2px solid #00ffff;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stat-icon {
+    font-size: 32px;
+    margin-right: 10px;
+}
+
+.stat-label {
+    flex: 1;
+    text-align: left;
+    color: #fff;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.stat-value {
+    font-size: 28px;
+    color: #00ff00;
+    font-weight: bold;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+.summary-message {
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(0, 255, 0, 0.1);
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+}
+
+.summary-message p {
+    color: #00ff00;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Deep Space skybox (16k) with planets
+* source:	https://sketchfab.com/3d-models/deep-space-skybox-16k-with-planets-6d7f12515ff44fb6aa83d95a77124946
+* author:	Jungle Jim (https://sketchfab.com/jungle_jim)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Deep Space skybox (16k) with planets" (https://sketchfab.com/3d-models/deep-space-skybox-16k-with-planets-6d7f12515ff44fb6aa83d95a77124946) by Jungle Jim (https://sketchfab.com/jungle_jim) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

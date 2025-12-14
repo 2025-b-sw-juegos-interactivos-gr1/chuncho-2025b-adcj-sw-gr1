@@ -1,0 +1,11 @@
+Model Information:
+* title:	Rust - Space Suit
+* source:	https://sketchfab.com/3d-models/rust-space-suit-730cd3ed773b4ce2bd60996d2bd03bd8
+* author:	CreadorDeMu (https://sketchfab.com/creadordemu)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Rust - Space Suit" (https://sketchfab.com/3d-models/rust-space-suit-730cd3ed773b4ce2bd60996d2bd03bd8) by CreadorDeMu (https://sketchfab.com/creadordemu) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
